@@ -6,14 +6,21 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-public class IndexController implements Controller{
+public class MainController implements Controller {
 
+	private String msg;
+	
+	//메시지 세팅
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("indexController run....");
+//		request.setAttribute("msg", "환영합니다");
 		ModelAndView mav=new ModelAndView();
-		mav.setViewName("index");
-		
+		mav.addObject("msg", msg);
+		mav.setViewName("main");
 		return mav;
 	}
 

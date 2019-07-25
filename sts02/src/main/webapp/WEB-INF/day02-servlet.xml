@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--  스프링 객체생성은 bean을 통해서-->
+	<bean id="dao" class="com.bit.day02.model.Day02Dao"></bean>
+
+
+	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+
+	<!-- 주소매핑하는과정 name라는 주소로 class를 실행-->
+	<bean name="/index.bit" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="index"></property>
+	</bean>
+	<bean name="/bbs/list.bit" class="com.bit.day02.controller.ListController">
+	<!-- 프로퍼티 호출은 다오 ref로 이객체를 참고하고 dao를 불러냄 -->
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<bean name="/bbs/detail.bit" class="com.bit.day02.controller.DetailController">
+		<property name="dao" ref="dao"></property>
+		<property name="viewName" value="detail"></property>
+	</bean>
+	<bean name="/bbs/edit.bit" class="com.bit.day02.controller.DetailController">
+		<property name="dao" ref="dao"></property>
+		<property name="viewName" value="edit"></property>
+	</bean>
+	<bean name="/bbs/update.bit" class="com.bit.day02.controller.UpdateController">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	
+	<bean name="/bbs/add.bit" class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="add"></property>
+	</bean>
+	<bean name="/bbs/insert.bit" class="com.bit.day02.controller.InsertController">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	
+	<bean name="/bbs/delete.bit" class="com.bit.day02.controller.DeleteController">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	
+	<!-- 주소경로 설정 및 파일 이름 -->
+	<bean id="ViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+</beans>
