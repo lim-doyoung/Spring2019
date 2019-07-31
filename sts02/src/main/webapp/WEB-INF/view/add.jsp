@@ -21,8 +21,8 @@
 	</div>
 		<div class="row">
 			<div class="col-md-4">
-				<a href="list.bit" class="btn btn-default btn-block" role="button">list</a>
-				<a href="add.bit" class="btn btn-primary btn-block" role="button">write</a>
+				<a href="list.bit" class="btn btn-primary btn-block" role="button">list</a>
+				<a href="add.bit" class="btn btn-default btn-block" role="button">write</a>
 			</div>
 			<div class="col-md-8">
 			

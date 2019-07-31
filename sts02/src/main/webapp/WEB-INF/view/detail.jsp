@@ -11,9 +11,10 @@
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	function deletedata(){
-		$.post('delete.bit', {idx:${bean.num}},function(){});
+		$.post('delete.bit', {idx:${bean.num}},function(){
 		window.location.href="list.bit";
-		}
+		});
+	}
 </script>
 </head>
 <body>

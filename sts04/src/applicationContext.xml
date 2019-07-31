@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+<!-- applicationContext.xml -->
+
+<bean id="mod5" class="com.bit.day04.module.Module5">
+	<property name="arr" >
+		<array>
+			<value>a1</value>
+			<value>a2</value>
+			<value>a3</value>
+			<value>a4</value>
+		</array>
+	</property>
+	<property name="list">
+		<list>
+			<value>A1</value>
+			<value>A2</value>
+			<value>A3</value>
+			<value>A4</value>
+		</list>
+	</property>
+	<property name="set">
+		<set>
+			<value>aaaa</value>
+			<value>bbbb</value>
+			<value>cccc</value>
+			<value>dddd</value>
+		</set>
+	</property>
+	<property name="map">
+<!-- 		<map>
+			<entry key="key1" value="val1"></entry>
+			<entry key="key2" value="val2"></entry>
+			<entry key="key3" value="val3"></entry>
+			<entry key="key4" value="val4"></entry>
+		</map> -->
+		<props>
+			<prop key="k1">v1</prop>
+			<prop key="k2">v2</prop>
+			<prop key="k3">v3</prop>
+			<prop key="k4">v4</prop>
+		</props>
+	</property>
+</bean>
+
+<bean id="module" class="com.bit.day04.module.Module2">
+<!-- 	<property name="msg" value="환영합?"></property>세터가 없어서 오류남 -->
+	<constructor-arg value="환영할까?"></constructor-arg>
+</bean>
+
+<!--모듈3의 모듈값을 세터로 ref에 받아서 name 로 넘김 -->
+<bean id="mod" class="com.bit.day04.module.Module3">
+<!-- 	<property name="module" ref="module"></property>  생정자 때문에 오류-->
+	<constructor-arg value="이거됌?"></constructor-arg>
+</bean>
+
+<bean id="mod4" class="com.bit.day04.module.Module4">
+	<property name="msg" value="abcd"></property>
+	<property name="num1" value="1004"></property>
+	<property name="num2" value="3.14"></property>
+	<property name="ch" value="@"></property>
+	<property name="boo" value="true"></property>
+</bean>
+
+</beans>
